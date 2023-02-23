@@ -1,0 +1,92 @@
+
+{% extends 'base2.html.twig' %}
+{%  block content %}
+       <div class="page-head"> 
+            <div class="container">
+                <div class="row">
+                    <div class="page-head-content">
+                        <h1 class="page-title">Liste des produit</h1>               
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End page header -->
+
+        <!-- property area -->
+        <div class="properties-area recent-property" style="background-color: #FFF;">
+            <div class="container">   
+                <div class="row">
+
+                    <div >
+                        <div class="section clear"> 
+                            <div class="col-xs-10 page-subheader sorting pl0">
+                                <ul class="sort-by-list">
+                             
+                                </ul><!--/ .sort-by-list-->
+                                
+                            </div>
+                            
+
+                            <div class="col-xs-2 layout-switcher">
+                                <a class="layout-list" href="javascript:void(0);"> <i class="fa fa-th-list"></i>  </a>
+                                <a class="layout-grid active" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>     
+                                <a href="{{ path('app_cart') }}">
+                                        <i class="fa fa-shopping-cart"> Mon panier </i> 
+                                </a>                     
+                            </div>
+                            <!--/ .layout-switcher-->
+                        </div>
+
+                        <div > 
+                            <div id="list-type" class="proerty-th">
+                              {% for  p in produits %}
+                                <div class="col-sm-1 col-md-4 p0">
+                                    <div class="box-two proerty-item">
+                                        <div class="item-thumb">
+                                            <a href="property-1.html" ><img src="{{ asset('uploads/produits/' ~ p.imgP) }}" alt="{{ p.imgP }}"></a>
+                                        </div>
+
+                                        <div class="item-entry overflow">
+                                            <h5><a href="property-1.html"> {{p.nomP}}  </a></h5>
+                                            <div class="dot-hr"></div>
+                                            <span class="pull-left"><b> Prix :</b> {{p.prixP }} DT</span>
+                                            <br>
+                                            <span class="pull-left"><b> Description :</b> {{p.descriptionP}}</span>
+                                            <br>
+                                             
+                                            <form action="{{ path('cart_add',{'id': p.id}) }}" method="POST">
+                                                <input type="hidden" name="product_id" value="{{ p.id }}">
+                                                        <button type="submit">Add to Cart</button>
+                                            </form>
+                                        </div>
+
+
+                                    </div>
+                                </div> 
+
+                              {% endfor %}
+
+                           <div class="col-md-12"> 
+                        <div class="pull-right">
+                            <div class="pagination">
+                                <ul>
+                                    <li><a href="#">Prev</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">Next</a></li>
+                                </ul>
+                            </div>
+                        </div>                
+                    </div>
+                            </div>
+                        </div>
+                    
+                    </div> 
+                
+                </div>           
+            </div>
+        </div>
+
+    {% endblock %}

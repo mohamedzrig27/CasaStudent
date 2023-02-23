@@ -1,0 +1,52 @@
+
+{% extends 'base.html.twig' %}
+
+
+       {%  block content %}
+
+       <div id="main-content">
+            <div class="container-fluid">
+
+                <div class="block-header py-lg-4 py-3">
+                    <div class="row g-3">
+                        <div class="col-md-6 col-sm-12">
+                            <h2 class="m-0 fs-5"><a href="javascript:void(0);" class="btn btn-sm btn-link ps-0 btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Liste des produits</h2>
+                            
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-2 clearfix">
+
+                {% for  p in produits %}
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <img src="{{ asset('uploads/produits/' ~ p.imgP) }}" alt="{{ p.imgP }}" height="120" width="120">
+                                <h5> {{p.nomP}} </h5>
+                                <small>{{p.descriptionP}}</small>
+                                <h6> {{p.prixP }}DT</h6>
+                                
+                                
+                                <div class="mt-3">
+                                <a href="{{ path ('produit_update', {'id': p.id}) }}">
+                                     <button class="btn btn-sm btn-primary">Modifier</button>
+                                    </a>
+                                    <a href="{{ path ('remove_produit', {'id': p.id}) }}">
+                                    <button class="btn btn-sm btn-success">Supprimer</button>
+                                    </a>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+        
+{% endblock %}

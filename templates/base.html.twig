@@ -1,0 +1,89 @@
+
+<html lang="en">
+
+
+<!-- Mirrored from wrraptheme.com/templates/lucid/hr/bs5/dist/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Mar 2022 10:45:20 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title> Dashboard</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="WrapTheme, design by: ThemeMakker.com">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- MAIN CSS -->
+    {% block css %}
+    <link rel="stylesheet" href="   {{ asset('css/main.css')}}" >
+        <link rel="stylesheet" href="   {{ asset('css/Design.css')}}" >
+
+    {% endblock %}
+</head>
+
+<body >
+
+<div id="layout" class="theme-orange"  >
+
+
+    <!-- Page Loader -->
+   
+    <!-- Overlay For Sidebars -->
+
+
+
+        <!-- Sidbar menu -->
+        <div id="left-sidebar" class="sidebar">
+            <div class="user-account p-3 mb-3">
+                <div class="d-flex mb-3 pb-3 border-bottom align-items-center">
+
+                    <div class="dropdown flex-grow-1">
+                        <span class="d-block">Welcome</span>
+                        <a  data-bs-toggle="dropdown"><strong>Espace Admin</strong></a>
+                      
+                    </div>
+                </div>
+            
+            </div>
+            <!-- nav tab: menu list -->
+      
+            <!-- nav tab: content -->
+            <div class="tab-content px-0">
+                <div class="tab-pane fade show active" id="hr_menu" role="tabpanel" >
+                    <nav class="sidebar-nav">
+                        <ul class="metismenu list-unstyled">
+                            {# <li class="active"><a href="index.html"><i class="fa fa-tachometer"></i><span>HR Dashboard</span></a></li> #}
+                                          <li class="active"><a href="  {{path('app_produit')}}"><i class="fa fa-list-ul"></i>Liste Des Produits</a></li>
+                                            <li><a href="  {{path('add_produit')}}"><i class="fa fa-list-ul"></i>Ajouter Un Produit</a></li>
+                                            <li><a href="  {{path('app_commande')}}"><i class="fa fa-list-ul"></i>Liste des commandes </a></li>
+
+
+                          
+                     
+                       
+                     
+                         
+                   
+                        </ul>
+                    </nav>
+                </div>
+         
+        
+            </div>
+        </div>
+
+       {%  block content %}
+
+       {% endblock %}
+
+    </div>
+
+</div>
+{% block js  %}
+<!-- core js file -->
+<script src="  {{asset('bundles/libscripts.bundle.js')}}"></script>
+
+<!-- page js file -->
+<script src="   {{asset('bundles/mainscripts.bundle.js')}}"></script>
+<script src=" {{asset('bundles/index.js')}} "></script>
+{% endblock %}
+</body>
+</html>
